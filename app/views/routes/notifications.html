@@ -1,0 +1,75 @@
+
+<h2>Notifications</h2>
+
+<div class="row notifications-wrapper" ng-show="notifications.length != 0">
+
+  <div class="col-xs-4 col-md-2 col-md-offset-10 col-xs-offset-8 filter">
+    <select class="form-control" ng-model="alertsFilter">
+      <option value="">All</option>
+      <option value="new">New</option>
+      <option value="old">Old</option>
+    </select>
+  </div>
+
+  <div class="col-md-12 notifications">
+    <table class="table table-strped table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Type</th>
+          <th>User</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Room Booked</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="alert in notifications | filter:alertsFilter" ng-class="{'active': alert.isSelected, 'warning': alert.status == 'old', 'success': alert.status == 'new'}">
+          <td><input type="checkbox" ng-model="alert.isSelected"></td>
+          <td>{{alert.type}}</td>
+          <td>{{alert.user.username}}</td>
+          <td>{{alert.user.email}}</td>
+          <td>{{alert.user.phone}}</td>
+          <td>{{alert.booking.roomid}}</td>
+          <td>{{alert.booking.status}}</td>
+          <td>
+            <div ng-show="alert.booking.status == 'pending'">
+              <button class="btn btn-info btn-xs" ng-click="aprooveBooking(alert)">Aproove</button>
+              <button class="btn btn-danger btn-xs" ng-click="rejectBooking(alert)">Reject</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="col-md-12" ng-show="selectedAlerts.length > 0">
+    <button class="btn btn-success" ng-click="markAlerts('new')">Mark As New</button>
+    <button class="btn btn-warning pull-right" ng-click="markAlerts('old')">Mark As Old</button>
+  </div>
+
+</div>
+
+<div class="row" ng-show="notifications.length == 0">
+  <div class="col-md-12">
+    <span>No notifications yet...</span>
+  </div>
+</div>
+
+<div class="custom-modal" ng-show="showModal == true">
+  <div class="panel col-xs-5 col-md-5">
+     <div class="panel-heading">
+      <h3>Write a message...</h3>
+      <preloader class="center-horizontal" ng-show="showLoader"></preloader>
+      <span class="glyphicon glyphicon-remove" ng-click="close();"></span>
+    </div>
+    <panel class="body">
+      
+      <textarea class="form-control put-space-bottom" ng-model="messageToSend" ></textarea>
+
+      <button class="btn btn-primary put-space-bottom pull-right" ng-disabled="messageToSend.length == 0" ng-click="sendMessage();">Send</button>
+    </panel>
+  </div>
+</div>

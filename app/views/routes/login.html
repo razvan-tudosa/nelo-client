@@ -1,0 +1,43 @@
+<div>
+  <div class="login-panel panel center-horizontal">
+    <div class="panel-heading">
+      <h3>Login</h3>
+      <preloader class="center-horizontal" ng-show="showLoader"></preloader>
+      <span class="glyphicon glyphicon-remove" ng-click="close();"></span>
+    </div>
+    <div class="panel-body">
+      <form>
+        <div class="form-group">
+          <label class="control-label" for="asd">Username:</label>
+          <input type="text" class="form-control" id="asd" ng-model="credentials.username">
+        </div>
+        <div class="form-group" ng-show="actionType == 'register'">
+          <label class="control-label">Email:</label>
+          <input type="text" class="form-control" ng-model="credentials.email">
+        </div>
+        <div class="form-group" ng-show="actionType == 'register'" ng-class="{'has-error': credentials.phone.length != 10 }">
+          <label class="control-label">Phone:</label>
+          <input type="text" class="form-control" ng-model="credentials.phone" maxlength="10">
+        </div>
+        <div class="form-group">
+          <label class="control-label">Password:</label>
+          <input type="password" class="form-control" ng-model="credentials.password">
+        </div>
+        <div class="form-group" ng-show="actionType == 'register'" ng-class="{'has-error': credentials.password != credentials.reTypePassword }">
+          <label class="control-label">Re-type Password:</label>
+          <input type="password" class="form-control" ng-model="credentials.reTypePassword" >
+        </div>
+        <span ng-show="actionType == 'login'" >
+          <a href="" class="small" ng-click="actionType = 'register'">Don't have an account?</a>
+        </span>
+        <span ng-show="actionType == 'register'" >
+          <a href="" class="small" ng-click="actionType = 'login'">Already have an account!</a>
+        </span>
+        <button class="btn btn-success pull-right" ng-class="{'disabled': !credentials.username || !credentials.password}" ng-click="login();" ng-show="actionType == 'login'">Login</button>
+        <button class="btn btn-info pull-right" ng-class="{'disabled': !credentials.username || !credentials.password || !credentials.phone || !credentials.email || credentials.phone.length != 10 || credentials.password != credentials.reTypePassword}" ng-click="register();" ng-show="actionType == 'register'">Register</button>
+      </form>
+    </div>
+  </div>
+  
+</div>
+

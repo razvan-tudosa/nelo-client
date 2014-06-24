@@ -1,0 +1,15 @@
+<h3 class="center-horizontal" ng-show="bookings.length == 0">You have no bookings yet!</h3>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="booking in bookings">
+        <span>Start Date: {{booking.startDate}}</span>
+        <span> | End Date: {{booking.endDate}}</span>
+        <span> | Status: 
+          <span ng-class="{'text-warning': booking.status == 'pending', 'text-danger': booking.status == 'rejected', 'text-success': booking.status == 'aprooved'}">{{booking.status | capitalize}}</span>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>

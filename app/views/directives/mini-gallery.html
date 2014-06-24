@@ -1,0 +1,8 @@
+<div class="mini-gallery">
+  <div class="controls">
+    <div class="prev" ng-click="miniGallery.prev();" ng-hide="miniGallery.isFirst"><span class="glyphicon glyphicon-chevron-left"></span></div>
+    <div class="next" ng-click="miniGallery.next();" ng-hide="miniGallery.isLast"><span class="glyphicon glyphicon-chevron-right"></span></div>
+    <div class="delete" ng-click="deletePhoto();" ng-show="showDelete"><span class="glyphicon glyphicon-trash"></span></div>
+  </div>
+  <img ng-src="{{miniGallery.photoLink}}" width=200>
+</div>

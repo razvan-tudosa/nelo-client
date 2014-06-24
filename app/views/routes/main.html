@@ -1,0 +1,41 @@
+<!-- <div>This is home!</div>
+
+<img src="http://127.0.0.1:3000/photos/09b8ea50cad72b5362ac33bdb4f8c42f" alt="">
+
+<form action="">
+  <input type="file" file-upload="files" multiple />
+  <button class="btn btn-success" ng-click="upload();">Shoot</button>
+  <li ng-repeat="file in files">{{file.name}}</li>
+</form> -->
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <carousel interval="myInterval">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.image}}" style="margin:auto;">
+        <div class="carousel-caption">
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel">
+      <div class="panel-body text-justify">
+        <p>
+          Welcome to hotel neLo, the perfect location to enjoy your vacation! Its unique design was created by fantastic architects. A grand sweeping staircase along with breathtaking open public spaces, a striking vertical garden and innovative guest rooms as well as vibrant dining spaces are not the only things that will make not want leave. We offer our guests traditional hospitality and awesome services in a modern, stylish and minimalist environment.
+        </p>
+        <p>
+          Located in the very heart of the city, access to the main cultural attraction is extremely convenient. Also, our guest can enjoy our luxurious 24 hour room service, spa and pool access and also the fitness room.
+        </p>
+        <p>
+          If you are in town for business, neLo is the perfect stay for you too. Elegant meeting and conference rooms are accessible for our clients at any time as well as free Wi-Fi, and in the evening you can go and relax at the bar lounge or enjoy a professional massage.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+

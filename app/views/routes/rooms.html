@@ -1,0 +1,15 @@
+ <div class="row">
+  <div class="col-md-10 col-md-offset-1 rooms-list">
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="room in rooms">
+        <div class="room-image pull-left">
+          <img ng-src="{{room.image}}" alt="{{room.title}}">
+        </div>
+        <div class="room-description pull-left">
+          <h5>{{room.title}}</h5>
+          <p>{{room.description}}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
